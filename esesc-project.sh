@@ -1,7 +1,7 @@
 #!/bin/bash
 
-results_dir=~/Dropbox/esesc-lab/results
-esesc_config_dir=~/Dropbox/esesc-lab/config
+results_dir=results
+esesc_config_dir=config
 
 cpu=boom2
 benchmark=tinydnn

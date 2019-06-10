@@ -5,8 +5,8 @@
 # esesc parameters
 esesc_dir=~/build/release
 benchmarks_dir=~/benchmarks
-data_path=$HOME/Downloads/tiny-dnn/data/cifar-10-batches-bin
-binary_dir=$HOME/Downloads/tiny-dnn/examples
+data_path=tiny-dnn/data/cifar-10-batches-bin
+binary_dir=tiny-dnn/examples
 cpu=boom2
 
 # parse CLI arguments
