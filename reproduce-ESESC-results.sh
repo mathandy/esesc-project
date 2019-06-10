@@ -16,7 +16,7 @@ echo ""
 echo ""
 echo ""
 echo ""
-echo Note if you do not have ~/build/release and ~/benchmarks directories set up as in the ESESC Lab, you must update benchmarks_dir and esesc_dir in run_tinydnn.sh
+echo Note if you do not have ~/projs/esesc/conf, ~/build/release and ~/benchmarks directories set up as in the ESESC Lab, you must update conf_dir, benchmarks_dir and esesc_dir in run_tinydnn.sh
 echo ""
 echo ""
 echo ""

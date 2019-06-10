@@ -11,8 +11,8 @@ note: this step may be unnecessary, but if you’re missing libraries, take a lo
     
     $ git clone https://github.com/mathandy/esesc-project.git  
     $ cd esesc-project  
-    $ ./reproduce-x86-results.sh  
-    $ ./reproduce-ESESC-results.sh  
+    $ bash reproduce-x86-results.sh  
+    $ bash reproduce-ESESC-results.sh  
 
 **Note:** If your ESESC paths differe from those used in the ESESC lab, you'll need to edit esesc-project.sh to specify the correct paths for the following two directories: 
 

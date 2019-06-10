@@ -5,6 +5,7 @@
 # esesc parameters
 esesc_dir=~/build/release
 benchmarks_dir=~/benchmarks
+conf_dir=~/projs/esesc/conf
 data_path=tiny-dnn/data/cifar-10-batches-bin
 binary_dir=tiny-dnn/examples
 cpu=boom2
@@ -25,9 +26,10 @@ echo
 # setup directory for experiment
 run_dir=$esesc_dir/$RUN_NAME
 mkdir $run_dir
+cp -r config $run_dir/base_configs
 cd $run_dir
 
-cp -r ~/projs/esesc/conf/* .
+cp -r $conf_dir/* .
 cp -r $benchmarks_dir/* .
 
 # switch to config file using TASS (and higher instruction count)
