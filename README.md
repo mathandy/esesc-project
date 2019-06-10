@@ -9,15 +9,15 @@ note: this step may be unnecessary, but if you’re missing libraries, take a lo
 
 3. clone this repo and run reproduce results
     
-    $ git clone https://github.com/mathandy/esesc-project.git
-    $ cd esesc-project
-    $ ./reproduce-x86-results.sh
-    $ ./reproduce-ESESC-results.sh
+    $ git clone https://github.com/mathandy/esesc-project.git  
+    $ cd esesc-project  
+    $ ./reproduce-x86-results.sh  
+    $ ./reproduce-ESESC-results.sh  
 
 **Note:** If your ESESC paths differe from those used in the ESESC lab, you'll need to edit esesc-project.sh to specify the correct paths for the following two directories: 
 
-    * esesc_dir (defaults to ~/build/release)
-    * benchmarks_dir (defaults to ~/benchmarks)
+    * esesc_dir (defaults to ~/build/release)  
+    * benchmarks_dir (defaults to ~/benchmarks)  
 
 
 ## Long steps to Reproduce (just in case the above doesn't work)
@@ -27,29 +27,29 @@ note: this step may be unnecessary, but if you’re missing libraries, take a lo
 note: this step may be unnecessary, but if you’re missing libraries, take a look.
 
 3. clone and compile tiny-dnn for x86
-    $ git clone https://github.com/tiny-dnn/tiny-dnn.git
-    $ cd tiny-dnn
-    $ export CC=riscv64-linux-gnu-g++; export CXX=riscv64-linux-gnu-g++   # probably unnecessary, but I did it
-    $ cmake . -DBUILD_EXAMPLES=ON
-    $ make
+    $ git clone https://github.com/tiny-dnn/tiny-dnn.git  
+    $ cd tiny-dnn  
+    $ export CC=riscv64-linux-gnu-g++; export CXX=riscv64-linux-gnu-g++   # probably unnecessary, but I did it  
+    $ cmake . -DBUILD_EXAMPLES=ON  
+    $ make  
 
 4. get cifar10 (binary version) and untar into the tiny-dnn/data directory
-    $ cd data
-    $ wget https://www.cs.toronto.edu/~kriz/cifar-10-binary.tar.gz
-    $ tar -xvzf cifar-10-binary.tar.gz
+    $ cd data  
+    $ wget https://www.cs.toronto.edu/~kriz/cifar-10-binary.tar.gz  
+    $ tar -xvzf cifar-10-binary.tar.gz  
 
 **You can now run the example with**
 
     $ cd ../examples 
-    $ perf stat ./example_mnist_train --data_path /home/andy/Downloads/tiny-dnn/data --epochs 1  # MNIST example
-    $ perf stat ./example_cifar_train --data_path /home/andy/Downloads/tiny-dnn/data/cifar-10-batches-bin  # CIFAR example
+    $ perf stat ./example_mnist_train --data_path   /home/andy/Downloads/tiny-dnn/data --epochs 1  # MNIST example  
+    $ perf stat ./example_cifar_train --data_path   /home/andy/Downloads/tiny-dnn/data/cifar-10-batches-bin  # CIFAR example  
 
 5. clone and compile tiny-dnn for RISC-V (first go to some new directory)
-    $ git clone https://github.com/tiny-dnn/tiny-dnn.git
-    $ cd tiny-dnn
-    $ export CC=riscv64-linux-gnu-g++; export CXX=riscv64-linux-gnu-g++   # probably unnecessary, but I did it
-    $ cmake . -DBUILD_EXAMPLES=ON -DUSE_AVX=OFF -DUSE_SSE=OFF -DEXTRA_C_FLAGS=-static -DEXTRA_CXX_FLAGS=-static -DCMAKE_C_COMPILER=riscv64-linux-gnu-gcc -DCMAKE_CXX_COMPILER=riscv64-linux-gnu-g++
-    $ make CC=riscv64-unknown-linux-gnu-g++
+    $ git clone https://github.com/tiny-dnn/tiny-dnn.git  
+    $ cd tiny-dnn  
+    $ export CC=riscv64-linux-gnu-g++; export CXX=riscv64-linux-gnu-g++   # probably unnecessary, but I did it  
+    $ cmake . -DBUILD_EXAMPLES=ON -DUSE_AVX=OFF -DUSE_SSE=OFF -DEXTRA_C_FLAGS=-static -DEXTRA_CXX_FLAGS=-static -DCMAKE_C_COMPILER=riscv64-linux-gnu-gcc -DCMAKE_CXX_COMPILER=riscv64-linux-gnu-g++  
+    $ make CC=riscv64-unknown-linux-gnu-g++  
     note: compilation will fail at end but that's ok ... just fails on one of the unused examples
 
 7. Clone and setup this repo
