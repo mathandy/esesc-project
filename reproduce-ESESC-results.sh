@@ -9,8 +9,13 @@ cmake . -DBUILD_EXAMPLES=ON -DUSE_AVX=OFF -DUSE_SSE=OFF -DEXTRA_C_FLAGS=-static 
 make CC=riscv64-unknown-linux-gnu-g++
 echo note: compilation is expected to fail at end but that is ok ... just fails on one of the unused examples
 
+# get cifar10 (binary version) and untar into the tiny-dnn/data directory
+cd data
+wget https://www.cs.toronto.edu/~kriz/cifar-10-binary.tar.gz
+tar -xvzf cifar-10-binary.tar.gz
+
 # setup this repo
-cd ..
+cd ../..
 mkdir results
 echo ""
 echo ""
