@@ -6,8 +6,8 @@
 esesc_dir=~/build/release
 benchmarks_dir=~/benchmarks
 conf_dir=~/projs/esesc/conf
-data_path=tiny-dnn/data/cifar-10-batches-bin
-binary_dir=tiny-dnn/examples
+data_path="$PWD"/tiny-dnn/data/cifar-10-batches-bin
+binary_dir="$PWD"/tiny-dnn/examples
 cpu=boom2
 
 # parse CLI arguments
@@ -26,7 +26,6 @@ echo
 # setup directory for experiment
 run_dir=$esesc_dir/$RUN_NAME
 mkdir $run_dir
-cp -r config $run_dir/base_configs
 cd $run_dir
 
 cp -r $conf_dir/* .

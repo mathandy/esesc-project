@@ -1,7 +1,7 @@
 #!/bin/bash
 
-results_dir=results
-esesc_config_dir=base_configs
+results_dir="$PWD"/results
+esesc_config_dir="$PWD"/config
 
 cpu=boom2
 benchmark=tinydnn

@@ -6,7 +6,7 @@ git clone https://github.com/tiny-dnn/tiny-dnn.git
 cd tiny-dnn
 export CC=riscv64-linux-gnu-g++; export CXX=riscv64-linux-gnu-g++   # probably unnecessary, but I did it
 cmake . -DBUILD_EXAMPLES=ON -DUSE_AVX=OFF -DUSE_SSE=OFF -DEXTRA_C_FLAGS=-static -DEXTRA_CXX_FLAGS=-static -DCMAKE_C_COMPILER=riscv64-linux-gnu-gcc -DCMAKE_CXX_COMPILER=riscv64-linux-gnu-g++
-make CC=riscv64-unknown-linux-gnu-g++
+make -j7 CC=riscv64-unknown-linux-gnu-g++
 echo note: compilation is expected to fail at end but that is ok ... just fails on one of the unused examples
 
 # get cifar10 (binary version) and untar into the tiny-dnn/data directory
